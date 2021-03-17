@@ -118,17 +118,6 @@ button[disabled] {
   overflow: hidden;
 }
 
-.passwordprompt {
-  display:flex;
-  justify-content:center;
-  padding-top:30px;
-  opacity:0;
-}
-
-.passwordprompt label.label {
-  margin-left: 5px;
-}
-
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
