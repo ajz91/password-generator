@@ -6,15 +6,15 @@ var Numbers = ['1','2','3','4','5','6','7','8','9','0'];
 
 function generatePassword() {
   var length = window.prompt("Length of password? 8-128 characters");
-  length = parseInt(length)
+  length = parseInt(length);
   var passwordString = "";
   if (isNaN (length) === true) {
-    window.alert("You must enter a number!")
+    window.alert("You must enter a number!");
     return;
   }
 
   if (length < 8 || length > 128 ) {
-    window.alert("Length must be between 8 and 128 characters")
+    window.alert("Length must be between 8 and 128 characters");
     return;
   }
 
@@ -24,28 +24,28 @@ function generatePassword() {
 
   var isNumbers = window.confirm("Numbers?");
   if (isUpperCase === false && isLowerCase === false && isSymbols === false && isNumbers === false) {
-    window.alert("You must at least pick one!")
+    window.alert("You must at least pick one!");
     return;
   }
 
-  var possibleCharacters = []
+  var possibleCharacters = [];
   if (isUpperCase === true) {
-    possibleCharacters = possibleCharacters.concat(upperCase)
+    possibleCharacters = possibleCharacters.concat(upperCase);
   }
   if (isLowerCase === true) {
-    possibleCharacters = possibleCharacters.concat(lowerCase)
+    possibleCharacters = possibleCharacters.concat(lowerCase);
   }
   if (isSymbols === true) {
-    possibleCharacters = possibleCharacters.concat(Symbols)
+    possibleCharacters = possibleCharacters.concat(Symbols);
   }
   if (isNumbers === true) {
-    possibleCharacters = possibleCharacters.concat(Numbers)
+    possibleCharacters = possibleCharacters.concat(Numbers);
   }
 
   for (var i = 0; i < length; i++) {
-    var index = Math.floor(Math.random()*possibleCharacters.length)
-    var temp = possibleCharacters[index]
-    passwordString = passwordString + temp
+    var index = Math.floor(Math.random()*possibleCharacters.length);
+    var temp = possibleCharacters[index];
+    passwordString = passwordString + temp;
   }
 
   return passwordString;
