@@ -7,6 +7,7 @@ var Numbers = ['1','2','3','4','5','6','7','8','9','0'];
 function generatePassword() {
   var length = window.prompt("Length of password? 8-128 characters");
   length = parseInt(length)
+  var passwordString = "";
   if (isNaN (length) === true) {
     window.alert("You must enter a number!")
     return;
@@ -18,13 +19,8 @@ function generatePassword() {
   }
 
   var isUpperCase = window.confirm("Uppercase characters?");
-
-
   var isLowerCase = window.confirm("Lowercase characters?");
-
-
   var isSymbols = window.confirm("Symbols?");
-
 
   var isNumbers = window.confirm("Numbers?");
   if (isUpperCase === false && isLowerCase === false && isSymbols === false && isNumbers === false) {
@@ -43,9 +39,16 @@ function generatePassword() {
     possibleCharacters = possibleCharacters.concat(Symbols)
   }
   if (isNumbers === true) {
-    possibleCharacters = possibleCharacters.concat(isNumbers)
+    possibleCharacters = possibleCharacters.concat(Numbers)
   }
 
+  for (var i = 0; i < length; i++) {
+    var index = Math.floor(Math.random()*possibleCharacters.length)
+    var temp = possibleCharacters[index]
+    passwordString = passwordString + temp
+  }
+
+  return passwordString;
 }
 
 // Get references to the #generate element
@@ -60,5 +63,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-// var passLength = 
